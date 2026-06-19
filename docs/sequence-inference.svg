@@ -1,0 +1,62 @@
+<svg width="1080" height="700" viewBox="0 0 1080 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Inference sequence diagram">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F7F8FB"/><stop offset="100%" stop-color="#EDF0F5"/></linearGradient>
+    <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5B8DEF"/><stop offset="100%" stop-color="#3A6FD8"/></linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9B7BE8"/><stop offset="100%" stop-color="#7C5AD6"/></linearGradient>
+    <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F58A6B"/><stop offset="100%" stop-color="#E96A45"/></linearGradient>
+    <linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3FC4A6"/><stop offset="100%" stop-color="#1FA98A"/></linearGradient>
+    <linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F0B450"/><stop offset="100%" stop-color="#E29A2C"/></linearGradient>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="200%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#1b2233" flood-opacity="0.22"/></filter>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#4a5160" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect x="0" y="0" width="1080" height="700" fill="url(#bg)"/>
+  <text x="60" y="50" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#1f2430">Inference sequence — single audio classification</text>
+
+  <!-- lifelines -->
+  <line x1="150" y1="168" x2="150" y2="650" stroke="#b9c0cc" stroke-width="1.5" stroke-dasharray="4 5"/>
+  <line x1="350" y1="168" x2="350" y2="650" stroke="#b9c0cc" stroke-width="1.5" stroke-dasharray="4 5"/>
+  <line x1="550" y1="168" x2="550" y2="650" stroke="#b9c0cc" stroke-width="1.5" stroke-dasharray="4 5"/>
+  <line x1="750" y1="168" x2="750" y2="650" stroke="#b9c0cc" stroke-width="1.5" stroke-dasharray="4 5"/>
+  <line x1="950" y1="168" x2="950" y2="650" stroke="#b9c0cc" stroke-width="1.5" stroke-dasharray="4 5"/>
+
+  <!-- activation bars -->
+  <rect x="345" y="210" width="10" height="400" rx="3" fill="#ffffff" stroke="#cfd5df" stroke-width="1"/>
+  <rect x="545" y="260" width="10" height="110" rx="3" fill="#ffffff" stroke="#cfd5df" stroke-width="1"/>
+  <rect x="745" y="360" width="10" height="110" rx="3" fill="#ffffff" stroke="#cfd5df" stroke-width="1"/>
+  <rect x="945" y="460" width="10" height="110" rx="3" fill="#ffffff" stroke="#cfd5df" stroke-width="1"/>
+
+  <!-- participant boxes -->
+  <rect x="68"  y="112" width="164" height="56" rx="16" fill="#2C57AE" filter="url(#softShadow)"/><rect x="68"  y="104" width="164" height="56" rx="16" fill="url(#g1)"/><text x="150" y="138" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#fff" text-anchor="middle">User</text>
+  <rect x="268" y="112" width="164" height="56" rx="16" fill="#5E40A8" filter="url(#softShadow)"/><rect x="268" y="104" width="164" height="56" rx="16" fill="url(#g2)"/><text x="350" y="138" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#fff" text-anchor="middle">Streamlit app</text>
+  <rect x="468" y="112" width="164" height="56" rx="16" fill="#C2502F" filter="url(#softShadow)"/><rect x="468" y="104" width="164" height="56" rx="16" fill="url(#g3)"/><text x="550" y="138" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#fff" text-anchor="middle">Preprocess + features</text>
+  <rect x="668" y="112" width="164" height="56" rx="16" fill="#14806A" filter="url(#softShadow)"/><rect x="668" y="104" width="164" height="56" rx="16" fill="url(#g4)"/><text x="750" y="138" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#fff" text-anchor="middle">Detection model</text>
+  <rect x="868" y="112" width="164" height="56" rx="16" fill="#B5781C" filter="url(#softShadow)"/><rect x="868" y="104" width="164" height="56" rx="16" fill="url(#g5)"/><text x="950" y="138" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="15" font-weight="600" fill="#fff" text-anchor="middle">Decision</text>
+
+  <!-- messages -->
+  <text x="250" y="204" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" fill="#4a5160" text-anchor="middle">Upload .wav audio</text>
+  <line x1="150" y1="212" x2="345" y2="212" stroke="#4a5160" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <text x="452" y="252" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" fill="#4a5160" text-anchor="middle">Load · resample 16 kHz · trim</text>
+  <line x1="355" y1="262" x2="545" y2="262" stroke="#4a5160" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <polyline points="555,300 605,300 605,322 557,322" fill="none" stroke="#4a5160" stroke-width="1.6" marker-end="url(#arr)"/>
+  <text x="612" y="306" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" fill="#4a5160">Compute log-mel spectrogram</text>
+
+  <text x="652" y="352" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" fill="#4a5160" text-anchor="middle">Feature tensor [1 × n_mels × T]</text>
+  <line x1="555" y1="362" x2="745" y2="362" stroke="#4a5160" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <polyline points="755,400 805,400 805,422 757,422" fill="none" stroke="#4a5160" stroke-width="1.6" marker-end="url(#arr)"/>
+  <text x="812" y="406" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" fill="#4a5160">Forward pass (CNN / LCNN)</text>
+
+  <text x="852" y="452" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" fill="#4a5160" text-anchor="middle">P(genuine) score</text>
+  <line x1="755" y1="462" x2="945" y2="462" stroke="#4a5160" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <text x="950" y="498" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" fill="#4a5160" text-anchor="middle">Apply EER threshold</text>
+  <polyline points="945,510 1000,510 1000,530 947,530" fill="none" stroke="#4a5160" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <text x="650" y="554" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" fill="#4a5160" text-anchor="middle">label + confidence</text>
+  <line x1="945" y1="564" x2="355" y2="564" stroke="#4a5160" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arr)"/>
+
+  <text x="250" y="604" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" fill="#4a5160" text-anchor="middle">Genuine / Deepfake + confidence %</text>
+  <line x1="345" y1="614" x2="155" y2="614" stroke="#4a5160" stroke-width="1.6" stroke-dasharray="6 5" marker-end="url(#arr)"/>
+</svg>

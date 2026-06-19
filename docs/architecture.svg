@@ -1,0 +1,70 @@
+<svg width="1000" height="980" viewBox="0 0 1000 980" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Deepfake audio detection system architecture, layered 3D diagram">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F7F8FB"/><stop offset="100%" stop-color="#EDF0F5"/></linearGradient>
+    <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5B8DEF"/><stop offset="100%" stop-color="#3A6FD8"/></linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9B7BE8"/><stop offset="100%" stop-color="#7C5AD6"/></linearGradient>
+    <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F58A6B"/><stop offset="100%" stop-color="#E96A45"/></linearGradient>
+    <linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3FC4A6"/><stop offset="100%" stop-color="#1FA98A"/></linearGradient>
+    <linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7DC95A"/><stop offset="100%" stop-color="#5CA93A"/></linearGradient>
+    <linearGradient id="g6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8A93A6"/><stop offset="100%" stop-color="#6B7488"/></linearGradient>
+    <linearGradient id="g7" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F0B450"/><stop offset="100%" stop-color="#E29A2C"/></linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="9" flood-color="#1b2233" flood-opacity="0.22"/></filter>
+  </defs>
+  <rect x="0" y="0" width="1000" height="980" fill="url(#bg)"/>
+  <text x="80" y="54" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="29" font-weight="700" fill="#1f2430">Deepfake Audio Detection — system architecture</text>
+  <text x="80" y="86" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="16" fill="#6b7280">Genuine vs AI-generated speech · feature-based pipeline · target accuracy ≥ 80% · EER ≤ 12%</text>
+
+  <!-- Data sources -->
+  <rect x="80" y="130" width="840" height="76" rx="20" fill="#2C57AE" filter="url(#softShadow)"/><rect x="80" y="120" width="840" height="76" rx="20" fill="url(#g1)"/>
+  <text x="110" y="166" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="21" font-weight="600" fill="#fff">Data sources</text>
+  <rect x="425" y="141" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="501" y="163" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#234a8a" text-anchor="middle">Fake-or-Real (norm)</text>
+  <rect x="583" y="141" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="659" y="163" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#234a8a" text-anchor="middle">ASVspoof 2019 LA</text>
+  <rect x="741" y="141" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="817" y="163" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#234a8a" text-anchor="middle">User-uploaded audio</text>
+
+  <!-- Preprocessing -->
+  <rect x="80" y="234" width="840" height="76" rx="20" fill="#5E40A8" filter="url(#softShadow)"/><rect x="80" y="224" width="840" height="76" rx="20" fill="url(#g2)"/>
+  <text x="110" y="270" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="21" font-weight="600" fill="#fff">Audio preprocessing</text>
+  <rect x="425" y="245" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="501" y="267" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#4a2f87" text-anchor="middle">Resample 16 kHz</text>
+  <rect x="583" y="245" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="659" y="267" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#4a2f87" text-anchor="middle">Trim silence / VAD</text>
+  <rect x="741" y="245" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="817" y="267" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#4a2f87" text-anchor="middle">Fixed-length crops</text>
+
+  <!-- Feature extraction -->
+  <rect x="80" y="338" width="840" height="76" rx="20" fill="#C2502F" filter="url(#softShadow)"/><rect x="80" y="328" width="840" height="76" rx="20" fill="url(#g3)"/>
+  <text x="110" y="374" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="21" font-weight="600" fill="#fff">Feature extraction</text>
+  <rect x="425" y="349" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="501" y="371" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#8a3a20" text-anchor="middle">Log-Mel spectrogram</text>
+  <rect x="583" y="349" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="659" y="371" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#8a3a20" text-anchor="middle">MFCC / CQT (opt)</text>
+  <rect x="741" y="349" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="817" y="371" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#8a3a20" text-anchor="middle">SpecAugment</text>
+
+  <!-- Model -->
+  <rect x="80" y="442" width="840" height="76" rx="20" fill="#14806A" filter="url(#softShadow)"/><rect x="80" y="432" width="840" height="76" rx="20" fill="url(#g4)"/>
+  <text x="110" y="478" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="21" font-weight="600" fill="#fff">Detection model</text>
+  <rect x="425" y="453" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="501" y="475" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#0d5e4d" text-anchor="middle">CNN / LCNN</text>
+  <rect x="583" y="453" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="659" y="475" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#0d5e4d" text-anchor="middle">BatchNorm + dropout</text>
+  <rect x="741" y="453" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="817" y="475" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#0d5e4d" text-anchor="middle">2-class softmax</text>
+
+  <!-- Training & eval -->
+  <rect x="80" y="546" width="840" height="76" rx="20" fill="#44802A" filter="url(#softShadow)"/><rect x="80" y="536" width="840" height="76" rx="20" fill="url(#g5)"/>
+  <text x="110" y="582" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="21" font-weight="600" fill="#fff">Training &amp; evaluation</text>
+  <rect x="425" y="557" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="501" y="579" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#2f5c1c" text-anchor="middle">Adam + scheduler</text>
+  <rect x="583" y="557" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="659" y="579" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#2f5c1c" text-anchor="middle">EER · F1 · accuracy</text>
+  <rect x="741" y="557" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="817" y="579" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#2f5c1c" text-anchor="middle">Confusion matrix</text>
+
+  <!-- Serving -->
+  <rect x="80" y="650" width="840" height="76" rx="20" fill="#4F5666" filter="url(#softShadow)"/><rect x="80" y="640" width="840" height="76" rx="20" fill="url(#g6)"/>
+  <text x="110" y="686" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="21" font-weight="600" fill="#fff">Serving</text>
+  <rect x="425" y="661" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="501" y="683" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#3a3f4c" text-anchor="middle">Saved checkpoint</text>
+  <rect x="583" y="661" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="659" y="683" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#3a3f4c" text-anchor="middle">predict.py CLI</text>
+  <rect x="741" y="661" width="152" height="34" rx="17" fill="#fff" opacity="0.92"/><text x="817" y="683" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#3a3f4c" text-anchor="middle">Streamlit web app</text>
+
+  <!-- Cross-cutting -->
+  <rect x="80" y="758" width="840" height="128" rx="24" fill="#B5781C" filter="url(#softShadow)"/><rect x="80" y="748" width="840" height="128" rx="24" fill="url(#g7)"/>
+  <text x="110" y="784" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#fff">Engineering controls — applied across the pipeline</text>
+  <rect x="110" y="800" width="250" height="30" rx="15" fill="#fff" opacity="0.92"/><text x="235" y="820" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="13" font-weight="500" fill="#7d5310" text-anchor="middle">Reproducible seeds</text>
+  <rect x="380" y="800" width="250" height="30" rx="15" fill="#fff" opacity="0.92"/><text x="505" y="820" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="13" font-weight="500" fill="#7d5310" text-anchor="middle">Config-driven (YAML)</text>
+  <rect x="650" y="800" width="250" height="30" rx="15" fill="#fff" opacity="0.92"/><text x="775" y="820" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="13" font-weight="500" fill="#7d5310" text-anchor="middle">CI + unit tests</text>
+  <rect x="110" y="838" width="250" height="30" rx="15" fill="#fff" opacity="0.92"/><text x="235" y="858" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="13" font-weight="500" fill="#7d5310" text-anchor="middle">Model versioning</text>
+  <rect x="380" y="838" width="250" height="30" rx="15" fill="#fff" opacity="0.92"/><text x="505" y="858" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="13" font-weight="500" fill="#7d5310" text-anchor="middle">Logging &amp; metrics</text>
+  <rect x="650" y="838" width="250" height="30" rx="15" fill="#fff" opacity="0.92"/><text x="775" y="858" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="13" font-weight="500" fill="#7d5310" text-anchor="middle">EER threshold calibration</text>
+
+  <text x="500" y="928" font-family="'Segoe UI', Inter, Arial, sans-serif" font-size="12.5" fill="#9aa1ad" text-anchor="middle">↓ data &amp; inference flow down    ↑ gradients, metrics &amp; feedback flow up    ·    every stage is seeded, config-driven and tested</text>
+</svg>
