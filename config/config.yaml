@@ -1,0 +1,52 @@
+# ----------------------------------------------------------------------------
+# Central configuration. Every script reads from here; nothing is hard-coded.
+# ----------------------------------------------------------------------------
+seed: 1337
+device: auto            # auto | cpu | cuda
+
+audio:
+  sample_rate: 16000
+  duration_sec: 4.0     # fixed analysis window; shorter clips are padded
+  trim_silence: true
+  top_db: 30            # silence trimming threshold (dB below peak)
+
+features:
+  type: logmel          # logmel | mfcc
+  n_fft: 1024
+  hop_length: 256
+  n_mels: 80
+  fmin: 20
+  fmax: 8000
+  n_mfcc: 40            # used only when features.type == mfcc
+  specaugment: true     # applied during training only
+  freq_mask: 12
+  time_mask: 24
+
+data:
+  # Point this at the Fake-or-Real "for-norm" directory (see data/README.md).
+  root: data/raw/for-norm
+  train_split: training
+  val_split: validation
+  test_split: testing
+  real_dirname: real
+  fake_dirname: fake
+  num_workers: 4
+
+model:
+  name: cnn             # cnn | lcnn
+  dropout: 0.3
+  n_classes: 2
+
+train:
+  epochs: 30
+  batch_size: 64
+  lr: 0.001
+  weight_decay: 0.0001
+  scheduler: cosine     # cosine | none
+  early_stop_patience: 7
+  out_dir: models
+  checkpoint_name: best_model.pt
+
+paths:
+  reports: reports
+  figures: reports/figures
